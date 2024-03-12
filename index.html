@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      :root {
+        --primary-color-1: #e7e6e6af;
+        --primary-color-2: #01589f;
+        --secondary-color-1: #428bca;
+        --secondary-color-2: #265073;
+        --secondary-color-3: #01589f;
+        --secondary-color-4: #265073;
+      }
+      body {
+        font-family: "League Spartan", sans-serif;
+        background-color: var(--primary-color-1);
+        margin: 0px;
+      }
+      h2,
+      h3 {
+        color: var(--secondary-color-3);
+      }
+      a {
+        text-decoration: none;
+        color: var(--secondary-color-2);
+      }
+      /*Small screen*/
+      @media screen and (max-width: 600px) {
+        .first-container {
+          display: block;
+          justify-content: center;
+        }
+        .first-container-image img {
+          width: 100%;
+        }
+        .first-container-content {
+          text-align: center;
+          margin-bottom: 20px;
+          padding: 20px;
+        }
+        .first-container-content h1 {
+          margin: 0px;
+          margin-bottom: 20px;
+        }
+        .second-card-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .second-card {
+          max-width: 60%;
+        }
+        .third-container {
+          flex-direction: column;
+        }
+        .third-container-content {
+          text-align: center;
+        }
+        .third-container-image img {
+          width: 100%;
+        }
+        .fourth-container-grid {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .fifth-container {
+          flex-direction: column-reverse;
+        }
+        .accordin {
+          width: 70%;
+        }
+        .panel {
+          width: 60%;
+        }
+      }
+      /*Big screen*/
+      @media (min-width: 600px) {
+        h2 {
+          font-size: 200%;
+        }
+        .first-container {
+          display: flex;
+          width: 100%;
+        }
+        .first-container > div {
+          flex: 1;
+        }
+        .first-container-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+        .first-container-content h1 {
+          margin: 0px;
+          font-size: 400%;
+        }
+        .first-container-image img {
+          width: 100%;
+        }
+        .second-container {
+          text-align: center;
+          padding: 30px;
+        }
+        .second-card-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 15px;
+          flex-wrap: wrap;
+        }
+        .second-card {
+          max-width: 20%;
+          min-width: 20%;
+        }
+        .third-container {
+          margin-left: 50px;
+        }
+        .third-container-image {
+          display: flex;
+          justify-content: flex-end;
+        }
+        .third-container-image img {
+          width: 100%;
+        }
+        .fourth-container-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .accordin {
+          width: 50%;
+        }
+        .panel {
+          width: 45%;
+        }
+      }
+
+      /* Css Starts*/
+      .first-container {
+        align-items: center;
+        background-color: var(--primary-color-2);
+        margin: 0px;
+        color: whitesmoke;
+      }
+      .first-container a {
+        color: whitesmoke;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .second-container {
+        text-align: center;
+      }
+      .second-card-container {
+        flex-wrap: wrap;
+      }
+      .second-card-container > div {
+        margin-bottom: 30px;
+        flex: 1;
+      }
+      .second-card {
+        background-color: white;
+        height: 100%;
+        padding: 20px;
+        border-radius: 9px;
+      }
+      .second-card-container img {
+        width: 100%;
+        height: 200px;
+      }
+      .third-container p {
+        font-size: 120%;
+      }
+      .third-container {
+        display: flex;
+        margin: 20px 0px;
+        padding: 30px 0px;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color-2);
+        color: white;
+        flex-wrap: wrap;
+      }
+      .third-container h2 {
+        color: white;
+      }
+      .third-container a {
+        color: white;
+      }
+      .third-container > div {
+        flex: 1;
+      }
+      .custom-btn {
+        width: 150px;
+        height: 40px;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 25px;
+        font-family: "Lato", sans-serif;
+        font-weight: 500;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+          7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+          4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+        outline: none;
+      }
+      .btn {
+        background: #0075cf;
+        border: none;
+        z-index: 1;
+        font-size: 1.2rem;
+      }
+      .btn:after {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 100%;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        background-color: #00599d;
+        border-radius: 5px;
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+          7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+          4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        color: #fff;
+      }
+      .btn:hover:after {
+        left: 0;
+        width: 100%;
+      }
+      .btn:active {
+        top: 2px;
+      }
+      .fourth-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+      }
+
+      .fourth-container-grid {
+        display: grid;
+        gap: 30px;
+        cursor: pointer;
+      }
+      .fourth-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: white;
+        padding: 15px;
+        border-radius: 10px;
+      }
+      .fourth-card-image {
+        width: 240px;
+        height: 230px;
+      }
+      .fourth-card-image img {
+        width: 100%;
+        height: 100%;
+      }
+      .fifth-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: white;
+        color: var(--primary-color-2);
+      }
+      .fifth-container > div {
+        flex: 1;
+      }
+      .fifth-container-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .fifth-container .panel {
+        color: black;
+      }
+      .accordin {
+        background-color: white;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+        border-radius: 6px;
+        border: 1px solid black;
+        margin-top: 15px;
+      }
+      .active,
+      .accordin:hover {
+        background-color: var(--primary-color-2);
+        color: white;
+      }
+      .panel {
+        padding: 0 18px;
+        padding-bottom: 20px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        background-color: #eee;
+        display: none;
+        overflow: hidden;
+      }
+      .card_third:hover {
+        transform: scale(1.02);
+      }
+      .fifth-container-image img {
+        width: 100%;
+      }
+      .sixth-container {
+        padding: 30px 0px;
+        margin: 40px 0px;
+        background-color: var(--primary-color-2);
+        text-align: center;
+      }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/762a2bf5c0.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="first-container">
+      <div class="first-container-content">
+        <h1>SIMPLICITY</h1>
+        <h1>STYLE</h1>
+        <br />
+        <p>
+          Crafted with Passion, <br />Worn with Confidence: Where Every Stitch
+          Tells a Story of Individuality and Expression
+        </p>
+        <a href="#">SHOP NOW <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="first-container-image">
+        <img src="./images/1.jpg" alt="Lady with fashion" />
+      </div>
+    </div>
+    <div class="second-container">
+      <h2>WHY SHOP WITH US?</h2>
+      <div class="second-card-container">
+        <div class="second-card">
+          <div class="card-image">
+            <img src="./images/5.jpg" alt="" />
+          </div>
+          <div class="card-body">
+            <h3>Quality Guarantee</h3>
+            <p>
+              Our clothing is made from high-quality materials, ensuring
+              durability and comfort with every purchase.
+            </p>
+          </div>
+        </div>
+        <div class="second-card">
+          <div class="card-image">
+            <img src="./images/3.jpg" alt="" />
+          </div>
+          <div class="card-body">
+            <h3>Personalized Recommendations</h3>
+            <p>
+              Shop from the comfort of your home, anytime, anywhere. Our online
+              platform is user-friendly, making your shopping experience
+              seamless and hassle-free.
+            </p>
+          </div>
+        </div>
+        <div class="second-card">
+          <div class="card-image">
+            <img src="./images/4.jpg" alt="" />
+          </div>
+          <div class="card-body">
+            <h3>Wide Selection</h3>
+            <p>
+              We offer a diverse range of styles, sizes, and designs to cater to
+              every taste and preference.
+            </p>
+          </div>
+        </div>
+        <div class="second-card">
+          <div class="card-image">
+            <img src="./images/2.jpg" alt="" />
+          </div>
+          <div class="card-body">
+            <h3>Convenience</h3>
+            <p>
+              Shop from the comfort of your home, anytime, anywhere. Our online
+              platform is user-friendly, making your shopping experience
+              seamless and hassle-free.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="third-container">
+      <div class="third-container-image">
+        <img src="./images/11.jpg" alt="" />
+      </div>
+      <div class="third-container-content">
+        <h2>TRENDING SEASON</h2>
+        <h2>START TRENDING NOW</h2>
+        <br />
+        <br />
+        <div class="third-container-javbar">
+          <a href="#"></a> | <a href="#">Dresses For Girls</a> |
+          <a href="#">T-Shirts </a>
+        </div>
+        <p>
+          Our mission is to inspire confidence and celebrate individuality
+          through timeless style and impeccable craftsmanship. From the soft
+          touch of luxurious fabrics to the meticulous attention to detail in
+          every stitch, each piece in our collection embodies a unique story
+          waiting to be told. Whether you're seeking sophisticated elegance or
+          laid-back chic, our diverse range of clothing is designed to empower
+          you to express your true self with flair and confidence.
+        </p>
+        <p>
+          Join us on a journey of self-expression, where every outfit becomes a
+          canvas for your personal style narrative.
+        </p>
+        <button class="btn custom-btn">Shop Now</button>
+      </div>
+    </div>
+    <div class="fourth-container">
+      <div>
+        <h2>Online Exclusive</h2>
+      </div>
+      <div class="fourth-container-grid">
+        <div class="fourth-card">
+          <div class="fourth-card-image">
+            <img src="./images/products/1.jpg" alt="Jordan Joggers" />
+          </div>
+          <div class="fourth-card-body">
+            <h3>Summer Jordan joggers</h3>
+            <button class="btn custom-btn">Buy</button>
+          </div>
+        </div>
+        <div class="fourth-card">
+          <div class="fourth-card-image">
+            <img src="./images/products/2.jpg" alt="" />
+          </div>
+          <div class="fourth-card-body">
+            <h3>Black color floral printed half shirt</h3>
+            <button class="btn custom-btn">Buy</button>
+          </div>
+        </div>
+        <div class="fourth-card">
+          <div class="fourth-card-image">
+            <img src="./images/products/3.jpg" alt="" />
+          </div>
+          <div class="fourth-card-body">
+            <h3>Winter thick fur leather jacket</h3>
+            <button class="btn custom-btn">Buy</button>
+          </div>
+        </div>
+        <div class="fourth-card">
+          <div class="fourth-card-image">
+            <img src="./images/products/4.jpg" alt="" />
+          </div>
+          <div class="fourth-card-body">
+            <h3>Long sleeveless party wear</h3>
+            <button class="btn custom-btn">Buy</button>
+          </div>
+        </div>
+        <div class="fourth-card">
+          <div class="fourth-card-image">
+            <img src="./images/products/5.jpg" alt="" />
+          </div>
+          <div class="fourth-card-body">
+            <h3>Black Bodycon</h3>
+            <button class="btn custom-btn">Buy</button>
+          </div>
+        </div>
+        <div class="fourth-card">
+          <div class="fourth-card-image">
+            <img src="./images/products/6.jpg" alt="" />
+          </div>
+          <div class="fourth-card-body">
+            <h3>Polo tshirt</h3>
+            <button class="btn custom-btn">Buy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fifth-container">
+      <div class="fifth-container-content">
+        <h1>SIMPLICITY STYLE</h1>
+        <button class="accordin">
+          <i class="fa-solid fa-envelope" style="font-size: 24px"></i><br />
+          <h4>Sign up for emails and get 25%off</h4>
+        </button>
+        <div class="panel">
+          <br />
+          <p>Save on your next purchase and discover our latest offers.</p>
+          <a href="#">Sign up</a>
+        </div>
+        <button class="accordin">
+          <i class="fa-solid fa-truck" style="font-size: 24px"></i><br />
+          <h4>We now ship to over 200 locations wolrd wide</h4>
+        </button>
+        <div class="panel">
+          <br />
+          <p>
+            Shop your favourite brands and send them to your friends and family
+            around the world.
+          </p>
+          <a href="#">Select your location</a>
+        </div>
+        <button class="accordin">
+          <i class="fa-solid fa-globe" style="font-size: 24px"></i><br />
+          <h4>Visit Nepal and come in store</h4>
+        </button>
+        <div class="panel">
+          <br />
+          <p>Get style inspiration,gift ideas,great deals and more.</p>
+          <a href="#">Find a store</a>
+        </div>
+      </div>
+      <div class="fifth-container-image">
+        <img src="./images/8.jpg" alt="Clothes" />
+      </div>
+    </div>
+    <div class="sixth-container">
+      <div class="sixth-container-image" id="img">
+        <img src="./images/carosel/1.jpg" alt="" />
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <div class="left-footer">
+          <a href="#"><img src="./images/logo.png" alt="logo" /></a>
+          <h3 style="font-weight: 500">
+            Crafted with Passion,<br />
+            Worn with Confidence
+          </h3>
+          <p>Address: Bhaktapur, Nepal</p>
+          <p>Phone: <a href="tel:+977-9843468465">+977-9843468465</a></p>
+          <p>
+            Email:<a href="mailto: aayushsth77@gmail.com"
+              >aayushsth77@gmail.com
+            </a>
+          </p>
+        </div>
+        <div class="middle-footer-1">
+          <h2><a href="#">Men</a></h2>
+          <a href="#">Watches</a>
+          <a href="#">Tshirts</a>
+          <a href="#">Shoes</a>
+          <a href="#">Suit</a>
+          <a href="#">Pants</a>
+        </div>
+        <div class="middle-footer-2">
+          <h2><a href="#">Women</a></h2>
+          <a href="#">Coat</a>
+          <a href="#">Hoodie</a>
+          <a href="#">Shoes</a>
+          <a href="#">Makeup</a>
+          <a href="#">Skirt</a>
+        </div>
+        <div class="right-footer">
+          <h2><a href="#">Contact us</a></h2>
+        </div>
+      </div>
+    </footer>
+    <script>
+      //javascript for accordin//
+      var acc = document.getElementsByClassName("accordin");
+      var i;
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        });
+      }
+
+      //Javascript for carosel//
+      var images = [
+        "./images/carosel/1.jpg",
+        "./images/carosel/2.jpg",
+        "./images/carosel/3.jpg",
+      ];
+      var x = 0;
+      var img = document.getElementById("img");
+      setInterval(slider, 2500);
+
+      function slider() {
+        if (x < images.length) {
+          x = x + 1;
+        } else {
+          x = 1;
+        }
+        img.innerHTML = "<img src=" + images[x - 1] + ">";
+      }
+    </script>
+  </body>
+</html>
